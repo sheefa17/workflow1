@@ -1,0 +1,33 @@
+name: Challenge1
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    name: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup
+        run: |
+          echo "Current Date:"
+          date
+          echo "Working Directory:"
+          pwd
+          echo "Directory Contents:"
+          ls -la
+
+  job2:
+    name: job2
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: print python version
+        run: python --version
+
+      - name: set up pandas
+        run: pip install pandas
